@@ -13,7 +13,8 @@ bufferline.setup {
     -- NOTE: this plugin is designed with this icon in mind,
     -- and so changing this is NOT recommended, this is intended
     -- as an escape hatch for people who cannot bear it for whatever reason
-    indicator_icon = "▎",
+    -- indicator_icon = "▎",
+    indicator_icon = "▉",
     buffer_close_icon = "",
     -- buffer_close_icon = '',
     modified_icon = "●",
@@ -35,6 +36,7 @@ bufferline.setup {
     max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
     tab_size = 21,
     diagnostics = false, -- | "nvim_lsp" | "coc",
+    -- diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
     -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
     --   return "("..count..")"
@@ -52,9 +54,9 @@ bufferline.setup {
     --   -- filter out based on arbitrary rules
     --   -- e.g. filter out vim wiki buffer from tabline in your work repo
     --   if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
-    --     return true
-    --   end
-    -- end,
+    --[[ --     return true
+    --   end ]]
+    -- en--[[ d ]],
     offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
     show_buffer_icons = true,
     show_buffer_close_icons = true,
@@ -159,6 +161,10 @@ bufferline.setup {
     --   guifg = {attribute='bg',highlight='TabLine'},
     --   guibg = {attribute='bg',highlight='TabLine'}
     --   },
+    -- indicator_selected = {
+    --   guifg = '#7CFC00',
+    --   guibg = '#C71585'
+    -- },
     indicator_selected = {
       guifg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
       guibg = { attribute = "bg", highlight = "Normal" },
