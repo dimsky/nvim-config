@@ -34,6 +34,7 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
+
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
@@ -68,6 +69,20 @@ nvim_tree.setup {
     cmd = nil,
     args = {},
   },
+  actions = {
+    change_dir = {
+      global = false,
+    },
+    open_file = {
+      resize_window = true,
+      quit_on_open = false,
+    },
+    window_picker = {
+      enable = false,
+      chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+      exclude = {},
+    },
+  },
   filters = {
     dotfiles = false,
     custom = {},
@@ -82,7 +97,7 @@ nvim_tree.setup {
     height = 30,
     hide_root_folder = false,
     side = "left",
-    -- auto_resize = true,
+    auto_resize = true,
     mappings = {
       custom_only = false,
       list = {
