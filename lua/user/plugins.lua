@@ -89,6 +89,11 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
+  use {
+    "phaazon/hop.nvim", -- like easymotion, but more powerful
+    branch = "v1", -- optional but strongly recommended
+  }
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",

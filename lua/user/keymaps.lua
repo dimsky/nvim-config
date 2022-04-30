@@ -21,6 +21,7 @@ vim.g.maplocalleader = ";"
 -- Normal --
 
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>w", ":w<cr>", opts)
 
 
 -- Better window navigation
