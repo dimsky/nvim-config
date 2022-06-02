@@ -1,4 +1,6 @@
 vim.cmd [[
+
+
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
@@ -93,6 +95,11 @@ vim.cmd [[
   autocmd BufNewFile * normal G
 
   augroup end
+
+
+  augroup _auto_format
+  autocmd BufWritePre * :Format
+  augroup end
 ]]
 
 -- Autoformat
@@ -100,3 +107,9 @@ vim.cmd [[
 --   autocmd!
 --   autocmd BufWritePre * lua vim.lsp.buf.formatting()
 -- augroup end
+
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  pattern = { "*.c", "*.h" },
+  command = "echo 'Entering a C or C++ file'",
+})

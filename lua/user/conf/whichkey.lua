@@ -85,6 +85,7 @@ local mappings = {
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["j"] = { "<cmd>HopWord<cr>", "HopWord" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["O"] = { "<cmd>AerialToggle<CR>", "Outline" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
@@ -140,7 +141,7 @@ local mappings = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {

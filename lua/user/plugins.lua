@@ -99,16 +99,19 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use "p00f/nvim-ts-rainbow"
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
 
   -- quick run
-  use { 'michaelb/sniprun', run = 'bash ./install.sh'}
+  use { 'michaelb/sniprun', run = 'bash ./install.sh' }
 
   -- outline
   use 'stevearc/aerial.nvim'
+
+  -- startuptime
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
