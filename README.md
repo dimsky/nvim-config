@@ -2,10 +2,14 @@
 
 my neovim config
 
-## 插件
+## required
+
+nvim > 0.8
+
+## plugin
 
 
 
-## 快捷键
+## shortcuts
 
 
