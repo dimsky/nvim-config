@@ -2,14 +2,28 @@
 
 my neovim config
 
-## required
+## Required
 
 nvim > 0.8
 
-## plugin
+
+## Install
+
+```zsh
+
+git clone https://github.com/dimsky/nvim-config ~/.config/nvim
+nvim +PackerSync
+
+```
+
+### Install LSP
 
 
 
-## shortcuts
+## Plugin
+
+
+
+## Shortcuts
 
 
