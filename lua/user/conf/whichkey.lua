@@ -3,6 +3,7 @@ if not status_ok then
   return
 end
 
+
 local setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -84,12 +85,13 @@ local mappings = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",
   },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  --[[ ["e"] = { "<cmd>lua require('nvim-tree.api').tree.toggle({path = nil,current_window = false, find_file = false,	update_root = true,	focus = true,})<cr>", "Explorer" }, ]]
+  ["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
   ["j"] = { "<cmd>HopWord<cr>", "HopWord" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["O"] = { "<cmd>AerialToggle<CR>", "Outline" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -97,6 +99,7 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  [","] = { "<cmd>lua vim.lsp.buf.format { async = true } <cr>", "Format Code"},
 
   p = {
     name = "Packer",
