@@ -1,4 +1,4 @@
-local status_ok, cmp = pcall(require, "neo-tree")
+local status_ok, neoTree = pcall(require, "neo-tree")
 if not status_ok then
   return
 end
@@ -14,7 +14,7 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
   {text = "󰌵", texthl = "DiagnosticSignHint"})
 
-require("neo-tree").setup({
+neoTree.setup({
 	close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 	popup_border_style = "rounded",
 	enable_git_status = true,
@@ -116,7 +116,7 @@ require("neo-tree").setup({
 		mappings = {
 			["<space>"] = { 
 					"toggle_node", 
-					nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use 
+					nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
 			},
 			["<2-LeftMouse>"] = "open",
 			["<cr>"] = "open",

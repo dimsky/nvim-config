@@ -1,4 +1,3 @@
-
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
@@ -34,5 +33,46 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- vim.keymap.set('n', '<space>f', function()
     --   vim.lsp.buf.format { async = true }
     -- end, opts)
+    local signs = {
+      { name = "DiagnosticSignError", text = "" },
+      { name = "DiagnosticSignWarn", text = "" },
+      { name = "DiagnosticSignHint", text = "" },
+      { name = "DiagnosticSignInfo", text = "" },
+    }
+
+    for _, sign in ipairs(signs) do
+      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+    end
+
+    local config = {
+      -- disable virtual text
+      virtual_text = false,
+      -- show signs
+      signs = {
+        active = signs,
+      },
+      update_in_insert = true,
+      underline = true,
+      severity_sort = true,
+      float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+      },
+    }
+
+    vim.diagnostic.config(config)
+
+    local function set_handler_opts_if_not_set(name, handler, opts)
+      if debug.getinfo(vim.lsp.handlers[name], "S").source:find(vim.env.VIMRUNTIME, 1, true) then
+        vim.lsp.handlers[name] = vim.lsp.with(handler, opts)
+      end
+    end
+
+    set_handler_opts_if_not_set("textDocument/hover", vim.lsp.handlers.hover, { border = "rounded" })
+    set_handler_opts_if_not_set("textDocument/signatureHelp", vim.lsp.handlers.signature_help, { border = "rounded" })
   end,
 })

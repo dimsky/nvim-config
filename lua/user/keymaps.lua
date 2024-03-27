@@ -21,7 +21,6 @@ vim.g.maplocalleader = ","
 -- Normal --
 
 keymap("n", "<leader>e", ":Neotree toggle<cr>", opts)
-
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)

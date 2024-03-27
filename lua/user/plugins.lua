@@ -81,6 +81,14 @@ require("lazy").setup({
   },
   "saadparwaiz1/cmp_luasnip", -- snippet completions
 
+  -- 首页
+  {
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+    end
+  },
 
   -- 语法高亮
   {
@@ -90,6 +98,17 @@ require("lazy").setup({
 
 
   { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+
+  "famiu/bufdelete.nvim",
+  -- {
+  --   "willothy/nvim-cokeline",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",       -- Required for v0.4.0+
+  --     "nvim-tree/nvim-web-devicons", -- If you want devicons
+  --     "stevearc/resession.nvim"      -- Optional, for persistent history
+  --   }
+  -- },
+  --
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
@@ -104,6 +123,7 @@ require("lazy").setup({
     lazy = false,
   },
 
+  -- 自动括号
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
@@ -112,7 +132,17 @@ require("lazy").setup({
     -- this is equalent to setup({}) function
   },
 
+  -- 快捷终端
   { 'akinsho/toggleterm.nvim', version = "*", opts = { --[[ things you want to change go here]] } },
+
+
+  -- markdown 预览
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
 
   -- colorscheme
   "sainnhe/gruvbox-material" -- color scheme

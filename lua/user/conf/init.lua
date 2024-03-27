@@ -11,6 +11,7 @@ require("user.conf.treesitter")
 -- require "user.conf.gitsigns"
 -- require "user.conf.nvim-tree"
 require "user.conf.bufferline"
+-- require "user.conf.cokeline"
 require "user.conf.lualine"
 require "user.conf.toggleterm"
 -- require "user.conf.project"

@@ -6,8 +6,8 @@ end
 bufferline.setup {
   options = {
     numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-    close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
-    right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+    close_command = require('bufdelete').bufdelete, -- can be a string | function, see "Mouse actions"
+    right_mouse_command = require('bufdelete').bufdelete, -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     -- NOTE: this plugin is designed with this icon in mind,
@@ -63,7 +63,7 @@ bufferline.setup {
     --[[ --     return true
     --   end ]]
     -- en--[[ d ]],
-    offsets = { { filetype = "neo-tree", text = "File Explorer", highlight = "Directory", text_align = "left", separator = true } },
+    offsets = { { filetype = "neo-tree", text = "File Explorer", text_align = "left", separator = true } },
 
     -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
     --   -- add custom logic
