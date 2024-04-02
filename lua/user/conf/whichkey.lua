@@ -104,7 +104,7 @@ local mappings = {
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  -- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   [","] = { "<cmd>lua vim.lsp.buf.format { async = true } <cr>", "Format Code" },
   ["r"] = { "<cmd>Neotree reveal_force_cwd<cr>", "Reveal tree"},
 

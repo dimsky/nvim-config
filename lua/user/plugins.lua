@@ -46,6 +46,8 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
+
+  -- 通知
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -59,13 +61,15 @@ require("lazy").setup({
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
-    }
+    },
   },
 
   -- LSP
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig", -- enable LSP
+
+  { 'VonHeikemen/lsp-zero.nvim',           branch = 'v3.x' },
 
 
   -- cmp
@@ -96,19 +100,18 @@ require("lazy").setup({
     build = ":TSUpdate"
   },
 
+  -- 折叠线
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",   opts = {} },
 
-  { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
-
+  -- 文件导航栏
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
   "famiu/bufdelete.nvim",
-  -- {
-  --   "willothy/nvim-cokeline",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",       -- Required for v0.4.0+
-  --     "nvim-tree/nvim-web-devicons", -- If you want devicons
-  --     "stevearc/resession.nvim"      -- Optional, for persistent history
-  --   }
-  -- },
-  --
+
+  -- 底部状态栏
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
@@ -144,8 +147,44 @@ require("lazy").setup({
     build = function() vim.fn["mkdp#util#install"]() end,
   },
 
-  -- colorscheme
-  "sainnhe/gruvbox-material" -- color scheme
+  -- theme
+  "sainnhe/gruvbox-material",
+
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
+  -- 快速跳转
+  {
+    "phaazon/hop.nvim", -- like easymotion, but more powerful
+    branch = "v2",      -- optional but strongly recommended
+    config = function()
+      require 'hop'.setup()
+    end
+  },
+
+
+  -- 首页
+  {
+    'stevearc/aerial.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
+  },
+
+  -- 透明
+  {
+    'xiyaowong/transparent.nvim',
+  },
+
+  -- AI 
+  { 'codota/tabnine-nvim', build = "./dl_binaries.sh" },
 
 })
 

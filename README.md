@@ -22,6 +22,11 @@ nvim
 
 ```
 
+
+### Vim Cheat Sheet
+[Vim key](https://vim.rtorr.com/lang/zh_cn)
+
+
 ### Install LSP
 
 
